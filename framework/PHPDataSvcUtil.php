@@ -126,7 +126,7 @@ class PHPSvcUtil
 
         $proc->transformToURI($this->_metadataDoc,
                               $this->_options['/out_dir'] .
-                              "\\" . $this->_getFileName());
+                              "/" . $this->_getFileName());
     }
 
     /**
@@ -199,7 +199,7 @@ class PHPSvcUtil
 
             if(isset($this->_options['/pu']))
             {
-            	curl_setopt($curlHandle, CURLOPT_PROXYUSERPWD,
+                curl_setopt($curlHandle, CURLOPT_PROXYUSERPWD,
                             $this->_options['/pu'] . ":" . $this->_options['/ppwd']);
                 curl_setopt($curlHandle, CURLOPT_HTTPPROXYTUNNEL, 1);
             }
@@ -537,7 +537,7 @@ class PHPSvcUtil
         $this->_options['/out_filename'] = null;
 
         $path_parts = pathinfo($this->_options['/out']);
-        $this->_options['/out_dir'] = rtrim($path_parts['dirname'], "\\");
+        $this->_options['/out_dir'] = $path_parts['dirname'];
         if(isset($path_parts['extension']) && !empty($path_parts['extension']))
         {
             $this->_options['/out_filename'] = $path_parts['basename'];
@@ -545,7 +545,7 @@ class PHPSvcUtil
         else
         {
             if($path_parts['basename'] != '.')
-                $this->_options['/out_dir'] .= "\\" . $path_parts['basename'];
+                $this->_options['/out_dir'] .= "/" . $path_parts['basename'];
         }
 
         if(!empty($this->_options['/uri']))
