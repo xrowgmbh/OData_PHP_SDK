@@ -56,7 +56,7 @@ Directorty Structure
 |
 |-- framework
         |
-        |--Azure       [contain files for using OData toolkit library aganist Windows Azure tables]
+        |--Azure       [contain files for using OData toolkit library against Windows Azure tables]
         |
         |--Common      [contains commonly used class definition files for dictionary, collection, 
         |               guid, http proxy, reflection helper.Utility classes for Azure ACS and Azure
